@@ -29,7 +29,5 @@ post '/results' do
   @game = Game.find(session[:game_id])
   @game.update_attributes(winner: @player) 
 
-  
-
   redirect to('/winner')
 end
