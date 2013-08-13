@@ -1,7 +1,7 @@
-$(document).ready(function(){ 
+$(document).ready(function(){
   $("body").keyup(function(event) {
+    var startTime = new Date();
     if (event.keyCode==81){ 
-      var startTime = new Date();
       var active = $('#player1_strip').find('.active');
       $(active).next().addClass('active');
       $(active).removeClass('active');
@@ -11,20 +11,23 @@ $(document).ready(function(){
           var winnerId = $('#player1_strip').attr('data-player');
           $.post('/results', {winner: winnerId, time: totalTime}, function() {
           window.location.href = "/winner";
-        } 
-      }
+          });
+        };
+    };
     if (event.keyCode==80){
-      var startTime = new Date();
       var active = $('#player2_strip').find('.active');
       $(active).next().addClass('active');
       $(active).removeClass('active');
         if ($(active).siblings(':last').hasClass('active')) {
-          var endTime = new Date();
-          var totalTime = (endTime.getSeconds() - startTime.getSeconds());
+          var endTime2 = new Date();
+          console.log(startTime);
+          console.log(endTime2);
+          var totalTime2 = (endTime2.getTime() - startTime.getTime()/1000);
           var winnerId = $('#player2_strip').attr('data-player');
           $.post('/results', {winner: winnerId, time: totalTime}, function() {
           window.location.href = "/winner";
-      };
+          });
+        };
     };
   });
 });
