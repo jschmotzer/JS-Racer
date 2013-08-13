@@ -25,9 +25,10 @@ end
 post '/results' do
   
   @winner = params[:winner]
+  @time = params[:time]
   @player = Player.find(@winner).name
   @game = Game.find(session[:game_id])
-  @game.update_attributes(winner: @player) 
+  @game.update_attributes(winner: @player, time: @time) 
 
   redirect to('/winner')
 end

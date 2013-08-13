@@ -1,13 +1,19 @@
+var count = 0
+var startTime = 0
+
 $(document).ready(function(){
   $("body").keyup(function(event) {
-    var startTime = new Date();
+    if (count === 0) {
+      startTime = new Date();
+      count += 1;
+    }
     if (event.keyCode==81){ 
       var active = $('#player1_strip').find('.active');
       $(active).next().addClass('active');
       $(active).removeClass('active');
         if ($(active).siblings(':last').hasClass('active')) {
           var endTime = new Date();
-          var totalTime = (endTime.getSeconds() - startTime.getSeconds());
+          var totalTime = (endTime - startTime)/1000;
           var winnerId = $('#player1_strip').attr('data-player');
           $.post('/results', {winner: winnerId, time: totalTime}, function() {
           window.location.href = "/winner";
@@ -20,11 +26,10 @@ $(document).ready(function(){
       $(active).removeClass('active');
         if ($(active).siblings(':last').hasClass('active')) {
           var endTime2 = new Date();
-          console.log(startTime);
-          console.log(endTime2);
-          var totalTime2 = (endTime2.getTime() - startTime.getTime()/1000);
+          var totalTime2 = (endTime2 - startTime)/1000;
+          alert(totalTime2);
           var winnerId = $('#player2_strip').attr('data-player');
-          $.post('/results', {winner: winnerId, time: totalTime}, function() {
+          $.post('/results', {winner: winnerId, time: totalTime2}, function() {
           window.location.href = "/winner";
           });
         };
