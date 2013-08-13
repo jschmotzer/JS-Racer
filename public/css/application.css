@@ -1,29 +1,58 @@
+
 .container {
-  margin: 20px auto;
+  margin: auto;
+  margin-top: 100px;
   width: 600px;
+  height: 200px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px solid;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #c1bf7c;
+  color: brown;
+}
+
+h1{
+  margin: 50px;
+}
+
+h2{
+  color: brown;
+  width: 200px
+  text-align: center;
+  margin-top: 200px;
+  margin-left: 475px;
+}
+
+.racer_table{
+  height: 75px;
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .racer_table td {
-  background-color: white;
+  background-color: yellow;
   height: 20px;
   width: 20px;
-  border: 1px dotted red;
+  border: 3px solid;
 }
 
 .racer_table td.active {
   background-color: black;
 }
 
-.winner { background-color: orange;
+.winner { background-color: #68acd6;
           margin: 20px auto;
-          width: 600px;
+          width: 800px;
           height: 600px;
           padding: 20px 20px 20px 20px;
-          border: 1px dotted black;   
           font-size: 64px;
-          color: green; 
+          color: white; 
+}
+
+#happy-dance{
+  margin-left: 155px;
 }
 
 th {
